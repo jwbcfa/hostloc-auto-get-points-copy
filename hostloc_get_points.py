@@ -10,7 +10,7 @@ def randomly_gen_uspace_url():
     # 生成的随机数可能会重复，懒得去重了，多生成几个就行了
     for i in range(12):
         uid = random.randint(10000, 35000)
-        url = "https://www.hostloc.com/space-uid-{}.html".format(str(uid))
+        url = "https://hostloc.com/space-uid-{}.html".format(str(uid))
         url_list.append(url)
     return url_list
 
@@ -19,7 +19,7 @@ def login(username, password):
     headers = {
         "User-Angent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36"
     }
-    login_url = "https://www.hostloc.com/member.php?mod=logging&action=login&loginsubmit=yes&infloat=yes&lssubmit=yes&inajax=1"
+    login_url = "https://hostloc.com/member.php?mod=logging&action=login&loginsubmit=yes&infloat=yes&lssubmit=yes&inajax=1"
     login_data = {
         "fastloginfield": "username",
         "username": username,
@@ -32,7 +32,7 @@ def login(username, password):
 
 def check_login_status(s, number_c):
     # 获取设置页面标题以测试是否登录成功
-    test_url = "https://www.hostloc.com/home.php?mod=spacecp"
+    test_url = "https://hostloc.com/home.php?mod=spacecp"
     res = s.get(test_url)
     res.encoding = "utf-8"
     test_title = re.findall("<title>.*?</title>", res.text)
